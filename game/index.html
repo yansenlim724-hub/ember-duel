@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Duel — a card duel of four elements</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="table">
+  <header id="topbar">
+    <div class="brand">EMBER DUEL</div>
+    <div class="topstats">
+      <span id="roundLabel">Round 1</span>
+      <span id="scoreLabel">Score 0</span>
+      <span id="winsLabel">Wins 0</span>
+    </div>
+  </header>
+
+  <section id="rivalZone" aria-label="Rival">
+    <div class="fighter">
+      <div class="portrait rival-portrait" title="Rival">◈</div>
+      <div class="fighter-info">
+        <div class="fighter-name">RIVAL — Ash the Ember Keeper <span id="rivalTell" class="tell"></span></div>
+        <div class="hpbar"><div id="rivalHpFill" class="hpfill rival"></div><span id="rivalHpText" class="hptext">30 / 30</span></div>
+        <div id="rivalMana" class="mana"></div>
+      </div>
+    </div>
+    <div id="rivalHand" class="hand rival-hand" aria-label="Rival hand, face down"></div>
+  </section>
+
+  <section id="middleZone">
+    <div id="chainBanner">Chain: play the same element twice in a row for +2 power</div>
+    <div id="log" aria-live="polite"></div>
+    <div id="floatLayer"></div>
+  </section>
+
+  <section id="playerZone" aria-label="Your hand">
+    <div class="fighter">
+      <div class="portrait player-portrait" title="You">▲</div>
+      <div class="fighter-info">
+        <div class="fighter-name">YOU — Keeper of the Four Embers</div>
+        <div class="hpbar"><div id="playerHpFill" class="hpfill player"></div><span id="playerHpText" class="hptext">30 / 30</span></div>
+        <div id="playerMana" class="mana"></div>
+      </div>
+      <button id="endTurnBtn" type="button">End Turn ⏎</button>
+    </div>
+    <div id="playerHand" class="hand player-hand"></div>
+    <div id="hint">Click a card or press 1–5 to play it · Space ends your turn · Chain the same element for +2</div>
+  </section>
+
+  <div id="titleScreen" class="overlay">
+    <div class="panel title-panel">
+      <div class="title-glyphs"><span class="g-ember">▲</span><span class="g-frost">◆</span><span class="g-thorn">✚</span><span class="g-tide">∿</span></div>
+      <h1>EMBER DUEL</h1>
+      <p class="tagline">Four elements. One keeper. Thirty health — yours or theirs.</p>
+      <div class="legend">
+        <span><i class="dot ember"></i>Ember ▲ burns hard</span>
+        <span><i class="dot frost"></i>Frost ◆ draws &amp; shields</span>
+        <span><i class="dot thorn"></i>Thorn ✚ heals as it bites</span>
+        <span><i class="dot tide"></i>Tide ∿ flows into mana</span>
+      </div>
+      <p class="rules">Play a card each turn with mouse or keys 1–5. Same element twice in a row chains for +2 power. Read the rival's favour — then counter it. First to 0 health loses.</p>
+      <button id="startBtn" type="button">▶ &nbsp;DUEL</button>
+      <p class="tiny">Best of the four elements wins. No luck without a plan.</p>
+    </div>
+  </div>
+
+  <div id="endScreen" class="overlay hidden">
+    <div class="panel end-panel">
+      <h1 id="endTitle">VICTORY</h1>
+      <p id="endLine"></p>
+      <div id="endStats" class="end-stats"></div>
+      <button id="againBtn" type="button">↻ &nbsp;DUEL AGAIN</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
